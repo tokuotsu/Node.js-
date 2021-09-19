@@ -44,16 +44,38 @@
                 </tr>
                 <% } %>
             </table>
-            <table class="table">
-                <!-- <%- inclued(ファイル名, {受け渡す値})> -->
-                <!-- <%- %>で出力内容をエスケープしないようにする -->
-                <% var id = 0; %>
+            <!-- <table class="table"> -->
+            <!-- inclued(ファイル名, {受け渡す値}) -->
+            <!-- <%- %>で出力内容をエスケープしないようにする -->
+                <% /* var id = 0; %>
                 <% for(var key in data) { %>
                 <%- include('data_item',
-                    {id:++id, key:key, val:[data[key]]}) -%>
-                <% } %>
+                    {id:++id, key:key, val:[data[key]]}) %>
+                <% } */ %> 
+            <!-- </table>  -->
+            <% var id = 0; %>
+            <% for(var key in data) { %>
+            <%- include('data_item',
+                {id:++id, key:key, val:[data[key]]}) %>
+            <% } %>
+
+            <table class="table">
+                <tr>
+                    <th>伝言です！</th>
+                </tr>
+                <tr>
+                    <td><%=data_.msg %></td>
+                </tr>
             </table>
+            <p>your last message:<%=cookie_data %></p>
+            <form method="post" action="/">
+                <div class="form-group">
+                    <label for="msg">MESSAGE</label>
+                    <input type="text" name="msg" id="msg" class="form-control">
+                </div>
+                <input type="submit" value="送信" class="btn-primary">
             <p><a href="/other">Other Pageに移動 &gt;&gt;</a></p>
+            <p><a href="/other2">Other2 Pageに移動 &gt;&gt;</a></p>
         </div>
     </body>
 </html>

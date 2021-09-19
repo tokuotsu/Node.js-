@@ -1,5 +1,16 @@
-<tr>
+<!-- <tr>
     <th><%= id %></th>
     <td><%= key %></td>
     <td><%= val[0] %></td>
-</tr>
+</tr> -->
+<table class="table-dark">
+    <tr>
+        <th><%= id %>:
+            <%= key %></th>
+    </tr>
+    <% for(var i in val){ %>
+    <tr>
+        <td><%= val[i] %></td>
+    </tr>
+    <% } %>
+</table>
